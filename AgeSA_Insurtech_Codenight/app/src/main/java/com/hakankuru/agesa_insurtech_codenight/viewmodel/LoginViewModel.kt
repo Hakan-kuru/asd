@@ -22,10 +22,9 @@ class LoginViewModel : ViewModel() {
         val generatedId = newUserRef.id // Üretilen ID'yi aldık
 
         // 2. Veri paketine bu ID'yi de ekliyoruz
-        val newUser = hashMapOf(
-            "id" to generatedId,       // Artık tabloda "id" alanı görünecek!
-            "username" to username,
-            "xp" to 0
+        val newUser = com.hakankuru.agesa_insurtech_codenight.data.User(
+            id = generatedId,
+            username = username
         )
 
         // 3. .set() kullanarak veriyi bu ID ile kaydediyoruz

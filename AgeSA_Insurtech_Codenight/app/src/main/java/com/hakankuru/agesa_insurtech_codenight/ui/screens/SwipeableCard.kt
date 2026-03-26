@@ -6,10 +6,7 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.gestures.detectDragGestures
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material3.Card
-import androidx.compose.material3.CardDefaults
-import androidx.compose.material3.Surface
-import androidx.compose.material3.Text
+import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -18,7 +15,6 @@ import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.IntOffset
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -27,51 +23,74 @@ import kotlin.math.roundToInt
 
 @Composable
 fun SwipeableCard(
+    category: String,
     question: String,
-    leftOption: String,
-    rightOption: String,
-    onSwiped: (String) -> Unit
+    isJustCash: Boolean, // JSON'dan gelen just_cash alanı
+    onSwiped: (String) -> Unit // "BANK", "CASH" veya "DOUBLE_LEFT_TRIGGER" döner
 ) {
     val offsetX = remember { Animatable(0f) }
     val scope = rememberCoroutineScope()
-    val screenWidthThreshold = 450f // Kaydırma eşiği
+    val screenWidthThreshold = 450f
 
     Box(
         modifier = Modifier
             .fillMaxWidth()
-            .height(350.dp)
+            .height(400.dp) // Kategori geldiği için biraz yükselttik
             .padding(16.dp),
         contentAlignment = Alignment.Center
     ) {
-        // Arka plan (Hangi yöne çekince ne olacağını gösteren kılavuzlar)
+        // --- ARKA PLAN (Kılavuzlar) ---
         Row(
-            modifier = Modifier.fillMaxSize().padding(horizontal = 20.dp),
+            modifier = Modifier.fillMaxSize().padding(horizontal = 24.dp),
             horizontalArrangement = Arrangement.SpaceBetween,
             verticalAlignment = Alignment.CenterVertically
         ) {
-            Text(text = "❌", fontSize = 24.sp)
-            Text(text = "✅", fontSize = 24.sp)
+            // SOL (Harcama Tarafı)
+            Column(horizontalAlignment = Alignment.CenterHorizontally) {
+                Text(text = "💸", fontSize = 30.sp)
+                Text(
+                    text = if (isJustCash) "Nakit" else "Ödeme Seç",
+                    fontSize = 12.sp,
+                    fontWeight = FontWeight.Bold,
+                    color = Color.Red
+                )
+            }
+
+            // SAĞ (Tasarruf Tarafı)
+            Column(horizontalAlignment = Alignment.CenterHorizontally) {
+                Text(text = "🏦", fontSize = 30.sp)
+                Text(text = "Banka", fontSize = 12.sp, fontWeight = FontWeight.Bold, color = Color(0xFF388E3C))
+            }
         }
 
-        // Hareketli Kart
+        // --- HAREKETLİ KART ---
         Card(
             modifier = Modifier
                 .offset { IntOffset(offsetX.value.roundToInt(), 0) }
                 .graphicsLayer {
-                    rotationZ = offsetX.value / 25 // Kart kaydıkça hafif döner
+                    rotationZ = offsetX.value / 20
+                    alpha = 1f - (Math.abs(offsetX.value) / 1200f).coerceIn(0f, 0.4f)
                 }
-                .pointerInput(Unit) {
+                .pointerInput(isJustCash) { // State değiştiğinde inputu sıfırla
                     detectDragGestures(
                         onDragEnd = {
                             scope.launch {
-                                if (offsetX.value > screenWidthThreshold) {
-                                    onSwiped(rightOption)
-                                    offsetX.snapTo(0f)
-                                } else if (offsetX.value < -screenWidthThreshold) {
-                                    onSwiped(leftOption)
-                                    offsetX.snapTo(0f)
-                                } else {
-                                    offsetX.animateTo(0f, tween(300))
+                                when {
+                                    // SAĞA KAYDIRMA -> Her zaman Banka (Tasarruf)
+                                    offsetX.value > screenWidthThreshold -> {
+                                        onSwiped("BANK")
+                                        offsetX.snapTo(0f)
+                                    }
+                                    // SOLA KAYDIRMA
+                                    offsetX.value < -screenWidthThreshold -> {
+                                        if (isJustCash) {
+                                            onSwiped("CASH") // Direkt nakit harcama
+                                        } else {
+                                            onSwiped("DOUBLE_LEFT_TRIGGER") // Seçim ekranını aç (Kredi/Nakit)
+                                        }
+                                        offsetX.snapTo(0f)
+                                    }
+                                    else -> offsetX.animateTo(0f, tween(300))
                                 }
                             }
                         },
@@ -82,76 +101,46 @@ fun SwipeableCard(
                     )
                 }
                 .fillMaxSize(),
-            shape = RoundedCornerShape(24.dp),
-            elevation = CardDefaults.cardElevation(defaultElevation = 6.dp),
+            shape = RoundedCornerShape(28.dp),
+            elevation = CardDefaults.cardElevation(defaultElevation = 8.dp),
             colors = CardDefaults.cardColors(containerColor = Color.White)
         ) {
             Column(
                 modifier = Modifier.fillMaxSize().padding(24.dp),
                 horizontalAlignment = Alignment.CenterHorizontally,
-                verticalArrangement = Arrangement.Center
+                verticalArrangement = Arrangement.SpaceBetween
             ) {
-                // Soru Metni
+                // KATEGORİ (Üstte küçük ve şık)
+                Surface(
+                    color = Color(0xFFFFEB3B).copy(alpha = 0.3f),
+                    shape = RoundedCornerShape(8.dp)
+                ) {
+                    Text(
+                        text = category.uppercase(),
+                        modifier = Modifier.padding(horizontal = 12.dp, vertical = 4.dp),
+                        fontSize = 12.sp,
+                        fontWeight = FontWeight.Black,
+                        color = Color.DarkGray
+                    )
+                }
+
+                // SORU METNİ (Ortada büyük)
                 Text(
                     text = question,
-                    fontSize = 22.sp,
-                    fontWeight = FontWeight.Bold,
+                    fontSize = 20.sp,
+                    fontWeight = FontWeight.Medium,
                     textAlign = TextAlign.Center,
-                    color = Color.DarkGray
+                    lineHeight = 28.sp,
+                    color = Color(0xFF2D2D2D)
                 )
 
-                Spacer(modifier = Modifier.height(32.dp))
-
-                // Yatık Seçenekler Row'u
-                Row(
-                    modifier = Modifier.fillMaxWidth(),
-                    horizontalArrangement = Arrangement.SpaceEvenly
-                ) {
-                    // Sola Yatık Sol Seçenek
-                    Text(
-                        text = leftOption,
-                        modifier = Modifier.graphicsLayer { rotationZ = -15f }, // Sola eğim
-                        color = Color.Red,
-                        fontSize = 18.sp,
-                        fontWeight = FontWeight.Medium
-                    )
-
-                    // Sağa Yatık Sağ Seçenek
-                    Text(
-                        text = rightOption,
-                        modifier = Modifier.graphicsLayer { rotationZ = 15f }, // Sağa eğim
-                        color = Color(0xFF388E3C), // Yeşil tonu
-                        fontSize = 18.sp,
-                        fontWeight = FontWeight.Medium
-                    )
-                }
+                // ALT BİLGİ (Kullanıcıya ne yapacağını hatırlatır)
+                Text(
+                    text = "Karar vermek için kaydır",
+                    fontSize = 11.sp,
+                    color = Color.LightGray
+                )
             }
-        }
-    }
-}
-
-@Preview(showBackground = true, name = "Swipe Card Önizleme")
-@Composable
-fun SwipeableCardPreview() {
-    // Projendeki genel temayı kullanıyorsan onunla sarmalayabilirsin
-    // Örn: YourAppTheme { ... }
-    Surface(
-        modifier = Modifier.fillMaxSize(),
-        color = Color(0xFFF0F0F0) // Arka planı biraz gri yapalım ki beyaz kart belli olsun
-    ) {
-        Column(
-            modifier = Modifier.fillMaxSize(),
-            verticalArrangement = Arrangement.Center,
-            horizontalAlignment = Alignment.CenterHorizontally
-        ) {
-            SwipeableCard(
-                question = "Acil durum butonu aktif edilsin mi?",
-                leftOption = "İptal",
-                rightOption = "Onayla",
-                onSwiped = { secim ->
-                    println("Seçilen: $secim")
-                }
-            )
         }
     }
 }

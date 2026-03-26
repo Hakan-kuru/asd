@@ -21,7 +21,7 @@ fun LoginScreen(
     // Kayıt başarılı olduğunda otomatik yönlendir
     LaunchedEffect(isSaved) {
         if (isSaved) {
-            onLoginSuccess(nameInput)
+            onLoginSuccess(viewModel.savedUserId)
         }
     }
 

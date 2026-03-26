@@ -3,97 +3,109 @@ package com.hakankuru.agesa_insurtech_codenight.ui.screens
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.*
-import androidx.compose.runtime.Composable
-import androidx.compose.runtime.collectAsState
-import androidx.compose.runtime.getValue
+import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.lifecycle.viewmodel.compose.viewModel // Gerekli bağımlılık aşağıda
+import androidx.lifecycle.viewmodel.compose.viewModel
+import com.hakankuru.agesa_insurtech_codenight.assest.BudgetHeader
+import com.hakankuru.agesa_insurtech_codenight.data.QuestionManager
 import com.hakankuru.agesa_insurtech_codenight.data.User
+import com.hakankuru.agesa_insurtech_codenight.ui.FinanceGameScreen
 import com.hakankuru.agesa_insurtech_codenight.viewmodel.UserState
 import com.hakankuru.agesa_insurtech_codenight.viewmodel.UserViewModel
+import com.hakankuru.agesa_insurtech_codenight.R
 
-@OptIn(ExperimentalMaterial3Api::class)
+
+import android.util.Log
+
+
 @Composable
-fun MainScreen(
-    onStartTest: () -> Unit, // Teste başla butonu için lambda
-    viewModel: UserViewModel = viewModel() // ViewModel injection
-) {
-    // ViewModel'deki state'i Compose state'ine çeviriyoruz
+fun MainScreen(userId: String, viewModel: UserViewModel = viewModel()) {
     val userState by viewModel.userState.collectAsState()
+    val context = LocalContext.current
+    var isTestStarted by remember { mutableStateOf(false) }
 
-    Scaffold(
-        modifier = Modifier.fillMaxSize(),
-        topBar = {
-            TopAppBar(title = { Text("Warning Profil") })
+    LaunchedEffect(userId) {
+        if (userId.isNotEmpty()) {
+            viewModel.startFetching(userId)
         }
-    ) { innerPadding ->
-        Column(
-            modifier = Modifier
-                .fillMaxSize()
-                .padding(innerPadding)
-                .padding(16.dp),
-            horizontalAlignment = Alignment.CenterHorizontally,
-            verticalArrangement = Arrangement.Top
-        ) {
-            // State'e göre farklı UI göster
-            when (userState) {
-                is UserState.Loading -> {
-                    CircularProgressIndicator(modifier = Modifier.padding(top = 50.dp))
-                }
-                is UserState.Success -> {
-                    val user = (userState as UserState.Success).user
-                    UserInfoCard(user = user)
-                }
-                is UserState.Error -> {
-                    val message = (userState as UserState.Error).message
-                    Text("Hata: $message", color = Color.Red, modifier = Modifier.padding(top = 50.dp))
+    }
+
+    // JSON dosyasını yerel assets klasöründen oku
+    val questionManager = remember(isTestStarted) {
+        if (isTestStarted) {
+            try {
+                val jsonString = context.resources.openRawResource(R.raw.questions).bufferedReader().use { it.readText() }
+                QuestionManager(jsonString)
+            } catch (e: Exception) {
+                Log.e("JSON_ERROR", "questions.json dosyası bulunamadı!", e)
+                null
+            }
+        } else null
+    }
+
+    Box(modifier = Modifier.fillMaxSize()) {
+        when (val state = userState) {
+            is UserState.Loading -> CircularProgressIndicator(Modifier.align(Alignment.Center))
+            is UserState.Error -> Text("Hata: ${state.message}", Modifier.align(Alignment.Center))
+            is UserState.Success -> {
+                if (!isTestStarted) {
+                    Column(Modifier.align(Alignment.Center), horizontalAlignment = Alignment.CenterHorizontally) {
+                        UserInfoCard(user = state.user)
+                        Button(onClick = { isTestStarted = true }) { Text("Teste Başla") }
+                    }
+                } else {
+                    if (questionManager != null) {
+                        Column {
+                            BudgetHeader(cash = state.user.cash, credit = state.user.credit)
+                            FinanceGameScreen(
+                                manager = questionManager, 
+                                viewModel = viewModel,
+                                onTestFinished = { isTestStarted = false }
+                            )
+                        }
+                    } else {
+                        Text("Soru dosyası yüklenemedi!", Modifier.align(Alignment.Center))
+                    }
                 }
             }
-
-            Spacer(modifier = Modifier.weight(1f)) // Butonu aşağıya itmek için
-
-            // Teste Başla Butonu (Lambda)
-            Button(
-                onClick = onStartTest,
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .height(56.dp),
-                shape = RoundedCornerShape(12.dp)
-            ) {
-                Text("Teste Başla", fontSize = 18.sp, fontWeight = FontWeight.Bold)
-            }
-
-            Spacer(modifier = Modifier.height(20.dp))
         }
     }
 }
-
 @Composable
 fun UserInfoCard(user: User) {
     Card(
-        modifier = Modifier.fillMaxWidth().padding(vertical = 20.dp),
-        elevation = CardDefaults.cardElevation(defaultElevation = 4.dp),
+        modifier = Modifier.fillMaxWidth().padding(vertical = 10.dp),
+        elevation = CardDefaults.cardElevation(4.dp),
         colors = CardDefaults.cardColors(containerColor = Color(0xFFF5F5F5))
     ) {
-        Column(
-            modifier = Modifier.padding(24.dp)
-        ) {
-            Text(text = "Hoş Geldin,", fontSize = 16.sp, color = Color.Gray)
-            Text(text = user.username, fontSize = 28.sp, fontWeight = FontWeight.Bold, color = Color.Black)
+        Column(modifier = Modifier.padding(20.dp)) {
+            Text("Hoş Geldin,", fontSize = 14.sp, color = Color.Gray)
+            Text(user.username, fontSize = 24.sp, fontWeight = FontWeight.Bold)
 
-            Spacer(modifier = Modifier.height(16.dp))
-            Divider(color = Color.LightGray)
-            Spacer(modifier = Modifier.height(16.dp))
+            Spacer(Modifier.height(12.dp))
+            HorizontalDivider(color = Color.LightGray)
+            Spacer(Modifier.height(12.dp))
 
-            Row(verticalAlignment = Alignment.CenterVertically) {
-                Text(text = "Mevcut Skorun:", fontSize = 16.sp, color = Color.DarkGray)
-                Spacer(modifier = Modifier.width(10.dp))
-                Text(text = "${user.xp} XP", fontSize = 22.sp, fontWeight = FontWeight.ExtraBold, color = Color(0xFF388E3C))
+            // Nakit, Kredi ve XP yan yana
+            Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween) {
+                Column {
+                    Text("Nakit", fontSize = 12.sp, color = Color.Gray)
+                    Text("${user.cash}₺", fontWeight = FontWeight.Bold, color = Color(0xFF388E3C))
+                }
+                Column {
+                    Text("Kredi", fontSize = 12.sp, color = Color.Gray)
+                    Text(if (user.credit > 0) "-${user.credit}₺" else "${user.credit}₺", fontWeight = FontWeight.Bold, color = Color.Red)
+                }
+                Column {
+                    Text("Skor", fontSize = 12.sp, color = Color.Gray)
+                    Text("${user.xp} XP", fontWeight = FontWeight.Bold, color = Color(0xFF1976D2))
+                }
             }
         }
     }

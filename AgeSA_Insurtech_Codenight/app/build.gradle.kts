@@ -42,6 +42,7 @@ dependencies {
     implementation(platform("com.google.firebase:firebase-bom:33.9.0"))
     implementation("com.google.firebase:firebase-firestore")
 
+    implementation("com.google.code.gson:gson:2.11.0")
     // ViewModel & Lifecycle (Hatalı olan 2.x.x yerine güncel versiyon)
     implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.8.7")
     implementation("androidx.lifecycle:lifecycle-runtime-compose:2.8.7")
@@ -57,6 +58,8 @@ dependencies {
     implementation(libs.androidx.compose.ui.graphics)
     implementation(libs.androidx.compose.ui.tooling.preview)
     implementation(libs.androidx.compose.material3)
+    implementation(libs.androidx.benchmark.traceprocessor)
+    implementation(libs.androidx.ui)
 
     // Test ve Debug Birimleri
     testImplementation(libs.junit)

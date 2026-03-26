@@ -4,6 +4,7 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
@@ -24,29 +25,25 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
-            AgeSA_Insurtech_CodenightTheme {var currentScreen by remember { mutableStateOf("login") }
-
-                // Kayıt olan kullanıcının ismini saklayıp Main'e aktarmak için
-                var userName by remember { mutableStateOf("") }
+            AgeSA_Insurtech_CodenightTheme {
+                var currentScreen by remember { mutableStateOf("login") }
+                var userId by remember { mutableStateOf("") } // Kaydedilen kullanıcı ID'si
 
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    // İçerik alanı (Padding'i yönetmek önemli)
-                    androidx.compose.foundation.layout.Box(modifier = Modifier.padding(innerPadding)) {
+                    Box(modifier = Modifier.padding(innerPadding)) {
                         when (currentScreen) {
                             "login" -> {
                                 LoginScreen(
-                                    onLoginSuccess = { enteredName: String -> // Tip buraya açıkça eklendi
-                                        userName = enteredName
+                                    onLoginSuccess = { savedUserId ->
+                                        // Login başarılı olunca Main'e geç
+                                        userId = savedUserId
                                         currentScreen = "main"
                                     }
                                 )
                             }
                             "main" -> {
-                                MainScreen(
-                                    onStartTest = {
-                                        // Test başlasın
-                                    }
-                                )
+                                // Artık onStartTest parametresini içerde yönetiyoruz
+                                MainScreen(userId = userId)
                             }
                         }
                     }
