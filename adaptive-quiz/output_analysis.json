@@ -1,0 +1,82 @@
+[
+  {
+    "hata_no": 1,
+    "kategori": "food",
+    "yapilan_yanlis_secim": "cash",
+    "orijinal_senaryo": "İş çıkışı arkadaşların seni yeni açılan restorana çağırıyor, kişi başı 850 TL.",
+    "bot_1_yorum": "Bak şimdi, bu harcama bütçeni sarsabilir. Ay başında lüks yemek için nakit harcamak bütçeyi erken zayıflatır.",
+    "bot_2_egitici_soru": {
+      "text": "FOOD kuralı: Gelirinin %10'unu her ay kenara ayırmak finansal özgürlük için doğru bir adımdır, değil mi?",
+      "options": [
+        "yes",
+        "no"
+      ],
+      "correct_option": "yes",
+      "explanation": "Kendine ödeme yapmak (birikim), finansal sağlığın temelidir."
+    }
+  },
+  {
+    "hata_no": 2,
+    "kategori": "shopping",
+    "yapilan_yanlis_secim": "credit",
+    "orijinal_senaryo": "Sezon sonu indirimi, o çok istediğin ceket şimdi sadece 1200 TL.",
+    "bot_1_yorum": "Bak şimdi, bu harcama bütçeni sarsabilir. İstek ürün için borçlanmak en kötü alışkanlık.",
+    "bot_2_egitici_soru": {
+      "text": "SHOPPING kuralı: Gelirinin %10'unu her ay kenara ayırmak finansal özgürlük için doğru bir adımdır, değil mi?",
+      "options": [
+        "yes",
+        "no"
+      ],
+      "correct_option": "yes",
+      "explanation": "Kendine ödeme yapmak (birikim), finansal sağlığın temelidir."
+    }
+  },
+  {
+    "hata_no": 3,
+    "kategori": "entertainment",
+    "yapilan_yanlis_secim": "cash",
+    "orijinal_senaryo": "Favori sanatçının konseri bu hafta, bilet 1800 TL ama bir daha gelmeyebilir.",
+    "bot_1_yorum": "Bak şimdi, bu harcama bütçeni sarsabilir. 1800 TL anlık keyif. Ay sonu fatura geldiğinde pişman olursun.",
+    "bot_2_egitici_soru": {
+      "text": "ENTERTAINMENT kuralı: Gelirinin %10'unu her ay kenara ayırmak finansal özgürlük için doğru bir adımdır, değil mi?",
+      "options": [
+        "yes",
+        "no"
+      ],
+      "correct_option": "yes",
+      "explanation": "Kendine ödeme yapmak (birikim), finansal sağlığın temelidir."
+    }
+  },
+  {
+    "hata_no": 4,
+    "kategori": "entertainment",
+    "yapilan_yanlis_secim": "credit",
+    "orijinal_senaryo": "Yeni çıkan oyun herkes oynuyor, deluxe sürüm 1500 TL.",
+    "bot_1_yorum": "Bak şimdi, bu harcama bütçeni sarsabilir. Oyun için borçlanmak en gereksiz harcama türü.",
+    "bot_2_egitici_soru": {
+      "text": "ENTERTAINMENT kuralı: Gelirinin %10'unu her ay kenara ayırmak finansal özgürlük için doğru bir adımdır, değil mi?",
+      "options": [
+        "yes",
+        "no"
+      ],
+      "correct_option": "yes",
+      "explanation": "Kendine ödeme yapmak (birikim), finansal sağlığın temelidir."
+    }
+  },
+  {
+    "hata_no": 5,
+    "kategori": "entertainment",
+    "yapilan_yanlis_secim": "credit",
+    "orijinal_senaryo": "Arkadaş grubu hafta sonu tatile gidiyor, senin payın 5000 TL.",
+    "bot_1_yorum": "Bak şimdi, bu harcama bütçeni sarsabilir. Tatil için borçlanmak en kötü karar. Tatil biter borç kalır.",
+    "bot_2_egitici_soru": {
+      "text": "ENTERTAINMENT kuralı: Gelirinin %10'unu her ay kenara ayırmak finansal özgürlük için doğru bir adımdır, değil mi?",
+      "options": [
+        "yes",
+        "no"
+      ],
+      "correct_option": "yes",
+      "explanation": "Kendine ödeme yapmak (birikim), finansal sağlığın temelidir."
+    }
+  }
+]

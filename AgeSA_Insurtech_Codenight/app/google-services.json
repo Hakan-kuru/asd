@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "549378243671",
+    "project_id": "agesa-insurtech-codenight",
+    "storage_bucket": "agesa-insurtech-codenight.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:549378243671:android:c2a4b81d2401b59621f712",
+        "android_client_info": {
+          "package_name": "com.hakankuru.agesa_insurtech_codenight"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCFgeWuLomZk45FsKWoyhMgWIlugLgYNTA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,662 @@
+[
+  {
+    "day": 1,
+    "month": 1,
+    "category": "food",
+    "just_cash": true,
+    "text": "İş çıkışı arkadaşların seni yeni açılan restorana çağırıyor, kişi başı 850 TL.",
+    "amount_percent": 0.07,
+    "answers": {
+      "cash": {
+        "correct": false,
+        "explanation": "Nakit harcamak bütçeni sarsabilir. Ay başında gereksiz lüks harcama bütçeyi erken sarsar. Doğrusu: harcama yapma, bankada tut."
+      },
+      "credit": {
+        "correct": false,
+        "explanation": "Krediyle harcama yapmak borcunu anlamsızca artırır. Ay başında gereksiz lüks harcama bütçeyi erken sarsar. Doğrusu: harcama yapma, bankada tut."
+      },
+      "bank": {
+        "correct": true,
+        "explanation": "Ay başında gereksiz lüks harcama bütçeyi erken sarsar. Doğrusu: harcama yapma, bankada tut."
+      }
+    }
+  },
+  {
+    "day": 2,
+    "month": 1,
+    "category": "transport",
+    "just_cash": true,
+    "text": "Arabanın lastikleri bitmiş, güvenlik için değiştirmen şart; 2400 TL.",
+    "amount_percent": 0.2,
+    "answers": {
+      "cash": {
+        "correct": true,
+        "explanation": "Güvenlik harcaması zorunlu. Doğrusu: nakit öde, kredi borcunu artırma."
+      },
+      "credit": {
+        "correct": false,
+        "explanation": "Nakit ödeyebileceğin tutarları krediyle alıp borç yükünü artırmamalısın."
+      },
+      "bank": {
+        "correct": false,
+        "explanation": "Bu harcamayı ertelemek daha büyük/pahalı sorunlara yol açabilir. Nakit ödemelisin."
+      }
+    }
+  },
+  {
+    "day": 3,
+    "month": 1,
+    "category": "shopping",
+    "just_cash": false,
+    "text": "Sezon sonu indirimi, o çok istediğin ceket şimdi sadece 1200 TL.",
+    "amount_percent": 0.1,
+    "answers": {
+      "cash": {
+        "correct": false,
+        "explanation": "Nakit harcamak bütçeni sarsabilir. İndirim tuzağı — ihtiyaç değil, istek. Doğrusu: harcamadan kaçın."
+      },
+      "credit": {
+        "correct": false,
+        "explanation": "Krediyle harcama yapmak borcunu anlamsızca artırır. İndirim tuzağı — ihtiyaç değil, istek. Doğrusu: harcamadan kaçın."
+      },
+      "bank": {
+        "correct": true,
+        "explanation": "İndirim tuzağı — ihtiyaç değil, istek. Doğrusu: harcamadan kaçın."
+      }
+    }
+  },
+  {
+    "day": 4,
+    "month": 1,
+    "category": "market",
+    "just_cash": true,
+    "text": "Haftalık market alışverişi zamanı, temel gıda ihtiyaçları 650 TL.",
+    "amount_percent": 0.05,
+    "answers": {
+      "cash": {
+        "correct": true,
+        "explanation": "Temel gıda zorunlu. Doğrusu: nakit öde, krediyi gereksiz yere kullanma."
+      },
+      "credit": {
+        "correct": false,
+        "explanation": "Nakit ödeyebileceğin tutarları krediyle alıp borç yükünü artırmamalısın."
+      },
+      "bank": {
+        "correct": false,
+        "explanation": "Bu harcamayı ertelemek daha büyük/pahalı sorunlara yol açabilir. Nakit ödemelisin."
+      }
+    }
+  },
+  {
+    "day": 5,
+    "month": 1,
+    "category": "entertainment",
+    "just_cash": false,
+    "text": "Favori sanatçının konseri bu hafta, bilet 1800 TL ama bir daha gelmeyebilir.",
+    "amount_percent": 0.15,
+    "answers": {
+      "cash": {
+        "correct": false,
+        "explanation": "Nakit harcamak bütçeni sarsabilir. FOMO ile yapılan harcama genelde pişmanlık getirir. Doğrusu: vazgeç."
+      },
+      "credit": {
+        "correct": false,
+        "explanation": "Krediyle harcama yapmak borcunu anlamsızca artırır. FOMO ile yapılan harcama genelde pişmanlık getirir. Doğrusu: vazgeç."
+      },
+      "bank": {
+        "correct": true,
+        "explanation": "FOMO ile yapılan harcama genelde pişmanlık getirir. Doğrusu: vazgeç."
+      }
+    }
+  },
+  {
+    "day": 6,
+    "month": 1,
+    "category": "digital",
+    "just_cash": true,
+    "text": "Bulut depolama alanın doldu, yıllık premium plan 360 TL.",
+    "amount_percent": 0.03,
+    "answers": {
+      "cash": {
+        "correct": true,
+        "explanation": "Düşük maliyetli, iş için gerekli dijital altyapı. Doğrusu: nakit öde."
+      },
+      "credit": {
+        "correct": false,
+        "explanation": "Nakit ödeyebileceğin tutarları krediyle alıp borç yükünü artırmamalısın."
+      },
+      "bank": {
+        "correct": false,
+        "explanation": "Bu harcamayı ertelemek daha büyük/pahalı sorunlara yol açabilir. Nakit ödemelisin."
+      }
+    }
+  },
+  {
+    "day": 7,
+    "month": 1,
+    "category": "food",
+    "just_cash": true,
+    "text": "Öğle yemeği bütçeni sarıyor, bu haftalık sipariş toplam 960 TL.",
+    "amount_percent": 0.08,
+    "answers": {
+      "cash": {
+        "correct": false,
+        "explanation": "Nakit harcamak bütçeni sarsabilir. Rutin dışarıdan yemek bütçeyi eritir. Doğrusu: evden hazırla, harcama."
+      },
+      "credit": {
+        "correct": false,
+        "explanation": "Krediyle harcama yapmak borcunu anlamsızca artırır. Rutin dışarıdan yemek bütçeyi eritir. Doğrusu: evden hazırla, harcama."
+      },
+      "bank": {
+        "correct": true,
+        "explanation": "Rutin dışarıdan yemek bütçeyi eritir. Doğrusu: evden hazırla, harcama."
+      }
+    }
+  },
+  {
+    "day": 8,
+    "month": 1,
+    "category": "subscription",
+    "just_cash": false,
+    "text": "Spor salonu üyelik yenileme zamanı, yıllık ödeme 3600 TL.",
+    "amount_percent": 0.12,
+    "answers": {
+      "cash": {
+        "correct": false,
+        "explanation": "Bu yatırım/yüksek meblağ için tüm nakitini sıfırlamak risklidir, krediye yaymalısın."
+      },
+      "credit": {
+        "correct": true,
+        "explanation": "Sağlık yatırımı ve yüksek tutar. Doğrusu: taksitle krediyle öde, nakiti koru."
+      },
+      "bank": {
+        "correct": false,
+        "explanation": "Bu mecburi ve yüksek bir gider, ertelemek mantıklı değil."
+      }
+    }
+  },
+  {
+    "day": 9,
+    "month": 1,
+    "category": "shopping",
+    "just_cash": false,
+    "text": "Yeni çıkan telefon modeli vitrinde parlıyor, 18000 TL ama taksit var.",
+    "amount_percent": 0.25,
+    "answers": {
+      "cash": {
+        "correct": false,
+        "explanation": "Nakit harcamak bütçeni sarsabilir. Mevcut telefon çalışıyorken teknoloji harcaması irrasyonel. Doğrusu: alma."
+      },
+      "credit": {
+        "correct": false,
+        "explanation": "Krediyle harcama yapmak borcunu anlamsızca artırır. Mevcut telefon çalışıyorken teknoloji harcaması irrasyonel. Doğrusu: alma."
+      },
+      "bank": {
+        "correct": true,
+        "explanation": "Mevcut telefon çalışıyorken teknoloji harcaması irrasyonel. Doğrusu: alma."
+      }
+    }
+  },
+  {
+    "day": 10,
+    "month": 1,
+    "category": "other",
+    "just_cash": true,
+    "text": "Ay sonu geldi. Tüm faturalar ve sabit giderler hesaptan düşülecek.",
+    "amount_percent": 0,
+    "answers": {
+      "cash": {
+        "correct": true,
+        "explanation": "Ay sonu zorunlu gider — kaçınılamaz."
+      },
+      "credit": {
+        "correct": false,
+        "explanation": "Nakit ödeyebileceğin tutarları krediyle alıp borç yükünü artırmamalısın."
+      },
+      "bank": {
+        "correct": false,
+        "explanation": "Bu harcamayı ertelemek daha büyük/pahalı sorunlara yol açabilir. Nakit ödemelisin."
+      }
+    }
+  },
+  {
+    "day": 1,
+    "month": 2,
+    "category": "market",
+    "just_cash": false,
+    "text": "Toptan alışveriş fırsatı: 3 aylık erzak stoku 2800 TL, birim fiyat yarı yarıya.",
+    "amount_percent": 0.18,
+    "answers": {
+      "cash": {
+        "correct": true,
+        "explanation": "Toptan alım uzun vadede tasarruf sağlar. Doğrusu: nakit öde."
+      },
+      "credit": {
+        "correct": false,
+        "explanation": "Nakit ödeyebileceğin tutarları krediyle alıp borç yükünü artırmamalısın."
+      },
+      "bank": {
+        "correct": false,
+        "explanation": "Bu harcamayı ertelemek daha büyük/pahalı sorunlara yol açabilir. Nakit ödemelisin."
+      }
+    }
+  },
+  {
+    "day": 2,
+    "month": 2,
+    "category": "entertainment",
+    "just_cash": false,
+    "text": "Yeni çıkan oyun herkes oynuyor, deluxe sürüm 1500 TL.",
+    "amount_percent": 0.1,
+    "answers": {
+      "cash": {
+        "correct": false,
+        "explanation": "Nakit harcamak bütçeni sarsabilir. Sosyal baskıyla yapılan lüks harcama. Doğrusu: alma."
+      },
+      "credit": {
+        "correct": false,
+        "explanation": "Krediyle harcama yapmak borcunu anlamsızca artırır. Sosyal baskıyla yapılan lüks harcama. Doğrusu: alma."
+      },
+      "bank": {
+        "correct": true,
+        "explanation": "Sosyal baskıyla yapılan lüks harcama. Doğrusu: alma."
+      }
+    }
+  },
+  {
+    "day": 3,
+    "month": 2,
+    "category": "transport",
+    "just_cash": true,
+    "text": "Toplu taşıma kartına aylık yükleme zamanı: 900 TL.",
+    "amount_percent": 0.06,
+    "answers": {
+      "cash": {
+        "correct": true,
+        "explanation": "Zorunlu ulaşım gideri. Doğrusu: nakit öde."
+      },
+      "credit": {
+        "correct": false,
+        "explanation": "Nakit ödeyebileceğin tutarları krediyle alıp borç yükünü artırmamalısın."
+      },
+      "bank": {
+        "correct": false,
+        "explanation": "Bu harcamayı ertelemek daha büyük/pahalı sorunlara yol açabilir. Nakit ödemelisin."
+      }
+    }
+  },
+  {
+    "day": 4,
+    "month": 2,
+    "category": "food",
+    "just_cash": true,
+    "text": "Doğum günü partisi organize ediyorsun, catering 3200 TL istiyor.",
+    "amount_percent": 0.22,
+    "answers": {
+      "cash": {
+        "correct": false,
+        "explanation": "Nakit harcamak bütçeni sarsabilir. Yüksek bütçeli sosyal etkinlik. Doğrusu: evde kutla, harcama."
+      },
+      "credit": {
+        "correct": false,
+        "explanation": "Krediyle harcama yapmak borcunu anlamsızca artırır. Yüksek bütçeli sosyal etkinlik. Doğrusu: evde kutla, harcama."
+      },
+      "bank": {
+        "correct": true,
+        "explanation": "Yüksek bütçeli sosyal etkinlik. Doğrusu: evde kutla, harcama."
+      }
+    }
+  },
+  {
+    "day": 5,
+    "month": 2,
+    "category": "other",
+    "just_cash": false,
+    "text": "Dişçi randevusu geldi, kanal tedavisi sigortanın kapsamadığı 2100 TL.",
+    "amount_percent": 0.14,
+    "answers": {
+      "cash": {
+        "correct": false,
+        "explanation": "Bu yatırım/yüksek meblağ için tüm nakitini sıfırlamak risklidir, krediye yaymalısın."
+      },
+      "credit": {
+        "correct": true,
+        "explanation": "Sağlık zorunlu ve yüksek tutar. Doğrusu: krediye yay, erteleme maliyeti daha yüksek."
+      },
+      "bank": {
+        "correct": false,
+        "explanation": "Bu mecburi ve yüksek bir gider, ertelemek mantıklı değil."
+      }
+    }
+  },
+  {
+    "day": 6,
+    "month": 2,
+    "category": "shopping",
+    "just_cash": false,
+    "text": "Kış yaklaşıyor, kaliteli bir mont 2600 TL ama en az 5 yıl giyersin.",
+    "amount_percent": 0.17,
+    "answers": {
+      "cash": {
+        "correct": true,
+        "explanation": "İhtiyaç bazlı uzun ömürlü alışveriş. Doğrusu: nakit öde."
+      },
+      "credit": {
+        "correct": false,
+        "explanation": "Nakit ödeyebileceğin tutarları krediyle alıp borç yükünü artırmamalısın."
+      },
+      "bank": {
+        "correct": false,
+        "explanation": "Bu harcamayı ertelemek daha büyük/pahalı sorunlara yol açabilir. Nakit ödemelisin."
+      }
+    }
+  },
+  {
+    "day": 7,
+    "month": 2,
+    "category": "digital",
+    "just_cash": false,
+    "text": "Online kurs platformunda büyük kampanya, tam paket 4500 TL.",
+    "amount_percent": 0.15,
+    "answers": {
+      "cash": {
+        "correct": false,
+        "explanation": "Nakit harcamak bütçeni sarsabilir. Kendini geliştirme iyi ama borç yüküyle öncelik değil. Doğrusu: ertele."
+      },
+      "credit": {
+        "correct": false,
+        "explanation": "Krediyle harcama yapmak borcunu anlamsızca artırır. Kendini geliştirme iyi ama borç yüküyle öncelik değil. Doğrusu: ertele."
+      },
+      "bank": {
+        "correct": true,
+        "explanation": "Kendini geliştirme iyi ama borç yüküyle öncelik değil. Doğrusu: ertele."
+      }
+    }
+  },
+  {
+    "day": 8,
+    "month": 2,
+    "category": "subscription",
+    "just_cash": true,
+    "text": "3 farklı streaming servisi yerine hepsini birleştiren paket aylık 250 TL.",
+    "amount_percent": 0.04,
+    "answers": {
+      "cash": {
+        "correct": true,
+        "explanation": "Mevcut harcamayı optimize etme — tasarruf. Doğrusu: nakit öde."
+      },
+      "credit": {
+        "correct": false,
+        "explanation": "Nakit ödeyebileceğin tutarları krediyle alıp borç yükünü artırmamalısın."
+      },
+      "bank": {
+        "correct": false,
+        "explanation": "Bu harcamayı ertelemek daha büyük/pahalı sorunlara yol açabilir. Nakit ödemelisin."
+      }
+    }
+  },
+  {
+    "day": 9,
+    "month": 2,
+    "category": "entertainment",
+    "just_cash": false,
+    "text": "Arkadaş grubu hafta sonu tatile gidiyor, senin payın 5000 TL.",
+    "amount_percent": 0.28,
+    "answers": {
+      "cash": {
+        "correct": false,
+        "explanation": "Nakit harcamak bütçeni sarsabilir. Bütçenin %28'i tek eğlence için — finansal intihar. Doğrusu: gitme."
+      },
+      "credit": {
+        "correct": false,
+        "explanation": "Krediyle harcama yapmak borcunu anlamsızca artırır. Bütçenin %28'i tek eğlence için — finansal intihar. Doğrusu: gitme."
+      },
+      "bank": {
+        "correct": true,
+        "explanation": "Bütçenin %28'i tek eğlence için — finansal intihar. Doğrusu: gitme."
+      }
+    }
+  },
+  {
+    "day": 10,
+    "month": 2,
+    "category": "other",
+    "just_cash": true,
+    "text": "İkinci ayın sonu. Birikmiş faturalar ve ekstra giderler hesaplanıyor.",
+    "amount_percent": 0,
+    "answers": {
+      "cash": {
+        "correct": true,
+        "explanation": "Ay sonu zorunlu gider."
+      },
+      "credit": {
+        "correct": false,
+        "explanation": "Nakit ödeyebileceğin tutarları krediyle alıp borç yükünü artırmamalısın."
+      },
+      "bank": {
+        "correct": false,
+        "explanation": "Bu harcamayı ertelemek daha büyük/pahalı sorunlara yol açabilir. Nakit ödemelisin."
+      }
+    }
+  },
+  {
+    "day": 1,
+    "month": 3,
+    "category": "transport",
+    "just_cash": true,
+    "text": "Arabanın sigortası yenileme zamanı, kasko dahil 7200 TL.",
+    "amount_percent": 0.24,
+    "answers": {
+      "cash": {
+        "correct": false,
+        "explanation": "Bu yatırım/yüksek meblağ için tüm nakitini sıfırlamak risklidir, krediye yaymalısın."
+      },
+      "credit": {
+        "correct": true,
+        "explanation": "Yasal zorunluluk ve yüksek tutar. Doğrusu: krediyle taksitle öde."
+      },
+      "bank": {
+        "correct": false,
+        "explanation": "Bu mecburi ve yüksek bir gider, ertelemek mantıklı değil."
+      }
+    }
+  },
+  {
+    "day": 2,
+    "month": 3,
+    "category": "food",
+    "just_cash": true,
+    "text": "Organik market açıldı, haftalık sepet normal marketin iki katı: 1300 TL.",
+    "amount_percent": 0.09,
+    "answers": {
+      "cash": {
+        "correct": false,
+        "explanation": "Nakit harcamak bütçeni sarsabilir. Bütçe kısıtlıyken lüks organik gereksiz. Doğrusu: normal marketten al."
+      },
+      "credit": {
+        "correct": false,
+        "explanation": "Krediyle harcama yapmak borcunu anlamsızca artırır. Bütçe kısıtlıyken lüks organik gereksiz. Doğrusu: normal marketten al."
+      },
+      "bank": {
+        "correct": true,
+        "explanation": "Bütçe kısıtlıyken lüks organik gereksiz. Doğrusu: normal marketten al."
+      }
+    }
+  },
+  {
+    "day": 3,
+    "month": 3,
+    "category": "shopping",
+    "just_cash": false,
+    "text": "Ev için yeni buzdolabı şart, eskisi bozuldu; en uygun model 8500 TL.",
+    "amount_percent": 0.2,
+    "answers": {
+      "cash": {
+        "correct": false,
+        "explanation": "Bu yatırım/yüksek meblağ için tüm nakitini sıfırlamak risklidir, krediye yaymalısın."
+      },
+      "credit": {
+        "correct": true,
+        "explanation": "Zorunlu beyaz eşya ve yüksek tutar. Doğrusu: krediyle taksitle al."
+      },
+      "bank": {
+        "correct": false,
+        "explanation": "Bu mecburi ve yüksek bir gider, ertelemek mantıklı değil."
+      }
+    }
+  },
+  {
+    "day": 4,
+    "month": 3,
+    "category": "entertainment",
+    "just_cash": false,
+    "text": "Sezon finali maçı için VIP bilet 2200 TL, normal tribün 400 TL.",
+    "amount_percent": 0.15,
+    "answers": {
+      "cash": {
+        "correct": false,
+        "explanation": "Nakit harcamak bütçeni sarsabilir. VIP gereksiz lüks. Doğrusu: VIP alma, normal bilet al ya da hiç gitme."
+      },
+      "credit": {
+        "correct": false,
+        "explanation": "Krediyle harcama yapmak borcunu anlamsızca artırır. VIP gereksiz lüks. Doğrusu: VIP alma, normal bilet al ya da hiç gitme."
+      },
+      "bank": {
+        "correct": true,
+        "explanation": "VIP gereksiz lüks. Doğrusu: VIP alma, normal bilet al ya da hiç gitme."
+      }
+    }
+  },
+  {
+    "day": 5,
+    "month": 3,
+    "category": "other",
+    "just_cash": false,
+    "text": "Evin su tesisatı patladı, acil tamir 1800 TL.",
+    "amount_percent": 0.12,
+    "answers": {
+      "cash": {
+        "correct": true,
+        "explanation": "Acil zorunlu tamir. Doğrusu: nakit öde, erteleme daha pahalıya patlar."
+      },
+      "credit": {
+        "correct": false,
+        "explanation": "Nakit ödeyebileceğin tutarları krediyle alıp borç yükünü artırmamalısın."
+      },
+      "bank": {
+        "correct": false,
+        "explanation": "Bu harcamayı ertelemek daha büyük/pahalı sorunlara yol açabilir. Nakit ödemelisin."
+      }
+    }
+  },
+  {
+    "day": 6,
+    "month": 3,
+    "category": "digital",
+    "just_cash": false,
+    "text": "Yeni çıkan akıllı saatin spor versiyonu 6500 TL, kalp ritmi ölçüyor.",
+    "amount_percent": 0.18,
+    "answers": {
+      "cash": {
+        "correct": false,
+        "explanation": "Nakit harcamak bütçeni sarsabilir. Sağlık bahanesiyle yapılan lüks harcama. Doğrusu: alma."
+      },
+      "credit": {
+        "correct": false,
+        "explanation": "Krediyle harcama yapmak borcunu anlamsızca artırır. Sağlık bahanesiyle yapılan lüks harcama. Doğrusu: alma."
+      },
+      "bank": {
+        "correct": true,
+        "explanation": "Sağlık bahanesiyle yapılan lüks harcama. Doğrusu: alma."
+      }
+    }
+  },
+  {
+    "day": 7,
+    "month": 3,
+    "category": "market",
+    "just_cash": false,
+    "text": "Bayram yaklaşıyor, hediye ve erzak bütçesi en az 2000 TL olacak.",
+    "amount_percent": 0.13,
+    "answers": {
+      "cash": {
+        "correct": true,
+        "explanation": "Kültürel zorunluluk, makul bütçe. Doğrusu: nakit öde."
+      },
+      "credit": {
+        "correct": false,
+        "explanation": "Nakit ödeyebileceğin tutarları krediyle alıp borç yükünü artırmamalısın."
+      },
+      "bank": {
+        "correct": false,
+        "explanation": "Bu harcamayı ertelemek daha büyük/pahalı sorunlara yol açabilir. Nakit ödemelisin."
+      }
+    }
+  },
+  {
+    "day": 8,
+    "month": 3,
+    "category": "subscription",
+    "just_cash": true,
+    "text": "Dil öğrenme uygulaması yıllık üyelik teklif ediyor: 1200 TL.",
+    "amount_percent": 0.08,
+    "answers": {
+      "cash": {
+        "correct": false,
+        "explanation": "Nakit harcamak bütçeni sarsabilir. Ücretsiz alternatifler varken paralı abonelik gereksiz. Doğrusu: kullanma."
+      },
+      "credit": {
+        "correct": false,
+        "explanation": "Krediyle harcama yapmak borcunu anlamsızca artırır. Ücretsiz alternatifler varken paralı abonelik gereksiz. Doğrusu: kullanma."
+      },
+      "bank": {
+        "correct": true,
+        "explanation": "Ücretsiz alternatifler varken paralı abonelik gereksiz. Doğrusu: kullanma."
+      }
+    }
+  },
+  {
+    "day": 9,
+    "month": 3,
+    "category": "food",
+    "just_cash": true,
+    "text": "Sevgilinin doğum günü, özel restoranda akşam yemeği 3500 TL.",
+    "amount_percent": 0.23,
+    "answers": {
+      "cash": {
+        "correct": false,
+        "explanation": "Nakit harcamak bütçeni sarsabilir. Duygusal harcama — ev yapımı sürpriz daha anlamlı ve ekonomik. Doğrusu: yapma."
+      },
+      "credit": {
+        "correct": false,
+        "explanation": "Krediyle harcama yapmak borcunu anlamsızca artırır. Duygusal harcama — ev yapımı sürpriz daha anlamlı ve ekonomik. Doğrusu: yapma."
+      },
+      "bank": {
+        "correct": true,
+        "explanation": "Duygusal harcama — ev yapımı sürpriz daha anlamlı ve ekonomik. Doğrusu: yapma."
+      }
+    }
+  },
+  {
+    "day": 10,
+    "month": 3,
+    "category": "other",
+    "just_cash": true,
+    "text": "Son ayın kapanışı. Tüm birikmiş giderler ve faturalar kesilecek.",
+    "amount_percent": 0,
+    "answers": {
+      "cash": {
+        "correct": true,
+        "explanation": "Ay sonu zorunlu gider — kaçınılamaz."
+      },
+      "credit": {
+        "correct": false,
+        "explanation": "Nakit ödeyebileceğin tutarları krediyle alıp borç yükünü artırmamalısın."
+      },
+      "bank": {
+        "correct": false,
+        "explanation": "Bu harcamayı ertelemek daha büyük/pahalı sorunlara yol açabilir. Nakit ödemelisin."
+      }
+    }
+  }
+]
