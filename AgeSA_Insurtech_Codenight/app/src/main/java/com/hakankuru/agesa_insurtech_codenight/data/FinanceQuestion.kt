@@ -20,3 +20,24 @@ data class AnswerOptions(
     val credit: AnswerDetail,
     val bank: AnswerDetail
 )
+
+// ──────────────────────────────────────────────────────────────
+// Kullanıcının verdiği cevabın kaydı (hatalardan ders çıkar için)
+// ──────────────────────────────────────────────────────────────
+data class UserResponse(
+    val question_category: String,
+    val question_text: String,
+    val selected_method: String,   // "CASH", "BANK", "CREDIT"
+    val was_correct: Boolean       // Doğru cevaplayıp cevaplayamadığı
+)
+
+// ──────────────────────────────────────────────────────────────
+// Gemini'nin ürettiği adaptif soru formatı
+// ──────────────────────────────────────────────────────────────
+data class AdaptiveQuestion(
+    val category: String,
+    val text: String,              // Soru metni
+    val options: List<String>,     // ["yes", "no"]
+    val correct_option: String,    // "yes" veya "no"
+    val explanation: String        // Doğru cevabın açıklaması
+)

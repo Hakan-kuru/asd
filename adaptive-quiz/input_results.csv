@@ -1,0 +1,7 @@
+scenario_index, chosen_option, is_correct
+0, cash, false
+2, credit, false
+4, cash, false
+6, bank, true
+11, credit, false
+18, credit, false
