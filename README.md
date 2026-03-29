@@ -6,13 +6,17 @@ Bu proje, **AgeSA Insurtech Codenight** kapsamında **7 saatlik** yoğun bir gel
 
 ## 📸 Ekran Görüntüleri (Screenshots)
 
-| Ana Ekran | Quiz Ekranı | Liderlik Tablosu |
+| Giriş | Ana Ekran | Sıralama |
 |:---:|:---:|:---:|
-| ![Ana Ekran](https://via.placeholder.com/200x400?text=Ana+Ekran) | ![Quiz Ekranı](https://via.placeholder.com/200x400?text=Quiz+Ekrani) | ![Liderlik Tablosu](https://via.placeholder.com/200x400?text=Leaderboard) |
+| ![Giriş](ScreenShots/giriş.jpeg) | ![Ana Ekran](ScreenShots/Main.jpeg) | ![Sıralama](ScreenShots/sıralama.jpeg) |
 
-| Analiz & Koçluk | Profil | Ayarlar |
+| Kaydırmalı Soru | Test Sonucu | Cevap Yorumu |
 |:---:|:---:|:---:|
-| ![Analiz](https://via.placeholder.com/200x400?text=Analiz+Ekrani) | ![Profil](https://via.placeholder.com/200x400?text=Profil) | ![Ayarlar](https://via.placeholder.com/200x400?text=Ayarlar) |
+| ![Kaydırmalı Soru](ScreenShots/Kaydırmalı_soru.jpeg) | ![Test Sonucu](ScreenShots/Test_Sonucu.jpeg) | ![Cevap Yorumu](ScreenShots/Cevap_yorumu.jpeg) |
+
+| Gemini Sorusu | Hatalarından Ders Çıkar | Test Soru Yorumu |
+|:---:|:---:|:---:|
+| ![Gemini Sorusu](ScreenShots/Gemini_soru.jpeg) | ![Hatalarından Ders Çıkar](ScreenShots/Hatalarından_ders_cıkar.jpeg) | ![Test Soru Yorumu](ScreenShots/Test_Soru_yorumu.jpeg) |
 
 ---
 
